@@ -31,9 +31,11 @@ library
       , QuickCheck
       , checkers
       , mtl
+      , random
 
   exposed-modules:
      HackingMonadError,
+     HackingStateMonad,
      HackingReaderMonad
 
 
