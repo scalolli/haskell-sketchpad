@@ -34,7 +34,7 @@ library
 
   exposed-modules:
      HackingMonadError,
-     CReader
+     HackingReaderMonad
 
 
   default-language: Haskell2010

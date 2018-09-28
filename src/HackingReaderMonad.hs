@@ -1,4 +1,4 @@
-module CReader where
+module HackingReaderMonad where
 
   import System.IO
   import Control.Monad.Reader
