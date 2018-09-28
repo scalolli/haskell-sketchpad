@@ -1,0 +1,945 @@
+
+==================== FINAL INTERFACE ====================
+2018-09-28 11:32:20.107759 UTC
+
+interface haskell-sketchpad-0.1.0.0-G5TRy3nU6jn2IWkghlFyGf:HackingMonadError 8022
+  interface hash: 541e44ea95b74b884e2488334c906be9
+  ABI hash: dce4755d34e30a79de00fb4a430f529d
+  export-list hash: 41e447b6b15fd6d715c9b5e1577832d6
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: d703de77dd487d7b95b7289fc3c0ddcd
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  HackingMonadError.divide
+  HackingMonadError.handleDivisionErrors
+  HackingMonadError.safe_divide
+  HackingMonadError.ArithmeticError{HackingMonadError.DivisionByZero HackingMonadError.NotDivisible}
+  HackingMonadError.MyEither{HackingMonadError.MyLeft HackingMonadError.MyRight}
+module dependencies:
+package dependencies: base-4.10.1.0* ghc-prim-0.5.1.1
+                      integer-gmp-1.0.1.0 mtl-2.2.2 transformers-0.5.2.0
+orphans: transformers-0.5.2.0:Control.Monad.Trans.Error
+         base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Either base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Type.Equality base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats
+import  -/  base-4.10.1.0:GHC.Base 782fd99b5e36f3698a26179a49afca64
+import  -/  base-4.10.1.0:GHC.Real 3c62834bc25e762eabc44149c4cc142d
+import  -/  base-4.10.1.0:GHC.Show 0a8ce2b5e533d1c2cfb7954e6736be45
+import  -/  base-4.10.1.0:Prelude 31945b7d0084063347fc52506d3a4020
+import  -/  ghc-prim-0.5.1.1:GHC.Classes 93e2660065dce9329577e83d76d8f0d4
+import  -/  mtl-2.2.2:Control.Monad.Error.Class 2adfab0432a1e2ba3b17fda5c892a24c
+import  -/  mtl-2.2.2:Control.Monad.Except 67b2229f0dd27ff895cb1fdcade8078a
+ee968f23dc8772baf69d5004305265b8
+  $fApplicativeMyEither ::
+    GHC.Base.Applicative (HackingMonadError.MyEither e)
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun: @ e.
+                  @ (HackingMonadError.MyEither e)
+                  (HackingMonadError.$fFunctorMyEither @ e)
+                  (HackingMonadError.MyRight @ e)
+                  (HackingMonadError.$fApplicativeMyEither_$c<*> @ e)
+                  (HackingMonadError.$fApplicativeMyEither_$cliftA2 @ e)
+                  (HackingMonadError.$fApplicativeMyEither_$c*> @ e)
+                  (HackingMonadError.$fApplicativeMyEither_$c<* @ e) -}
+ee968f23dc8772baf69d5004305265b8
+  $fApplicativeMyEither1 :: HackingMonadError.MyEither e b
+  {- Strictness: x -}
+ee968f23dc8772baf69d5004305265b8
+  $fApplicativeMyEither_$c*> ::
+    HackingMonadError.MyEither e a
+    -> HackingMonadError.MyEither e b -> HackingMonadError.MyEither e b
+  {- Arity: 2, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (a1 :: HackingMonadError.MyEither e a)
+                   (a2 :: HackingMonadError.MyEither e b) ->
+                 case a1 of wild {
+                   HackingMonadError.MyLeft e1
+                   -> HackingMonadError.$fApplicativeMyEither1 @ e @ b
+                   HackingMonadError.MyRight a4 -> a2 }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fApplicativeMyEither_$c<* ::
+    HackingMonadError.MyEither e a
+    -> HackingMonadError.MyEither e b -> HackingMonadError.MyEither e a
+  {- Arity: 2, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (x :: HackingMonadError.MyEither e a)
+                   (eta :: HackingMonadError.MyEither e b) ->
+                 case x of wild {
+                   HackingMonadError.MyLeft e1
+                   -> HackingMonadError.$fApplicativeMyEither1 @ e @ a
+                   HackingMonadError.MyRight a1
+                   -> case eta of wild1 {
+                        HackingMonadError.MyLeft e1 -> HackingMonadError.MyLeft @ e @ a e1
+                        HackingMonadError.MyRight a2
+                        -> HackingMonadError.MyRight @ e @ a a1 } }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fApplicativeMyEither_$c<*> ::
+    HackingMonadError.MyEither e (a -> b)
+    -> HackingMonadError.MyEither e a -> HackingMonadError.MyEither e b
+  {- Arity: 2, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (ds :: HackingMonadError.MyEither e (a -> b))
+                   (ds1 :: HackingMonadError.MyEither e a) ->
+                 case ds of wild {
+                   HackingMonadError.MyLeft ipv
+                   -> HackingMonadError.$fApplicativeMyEither1 @ e @ b
+                   HackingMonadError.MyRight f
+                   -> case ds1 of wild1 {
+                        HackingMonadError.MyLeft e1 -> HackingMonadError.MyLeft @ e @ b e1
+                        HackingMonadError.MyRight a1
+                        -> HackingMonadError.MyRight @ e @ b (f a1) } }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fApplicativeMyEither_$cliftA2 ::
+    (a -> b -> c)
+    -> HackingMonadError.MyEither e a
+    -> HackingMonadError.MyEither e b
+    -> HackingMonadError.MyEither e c
+  {- Arity: 2, Strictness: <L,1*C1(U)><L,1*U>,
+     Unfolding: (\ @ e
+                   @ a
+                   @ b
+                   @ c
+                   (f1 :: a -> b -> c)
+                   (x :: HackingMonadError.MyEither e a) ->
+                 let {
+                   ds :: HackingMonadError.MyEither e (b -> c)
+                   = case x of wild {
+                       HackingMonadError.MyLeft e1
+                       -> HackingMonadError.MyLeft @ e @ (b -> c) e1
+                       HackingMonadError.MyRight a1
+                       -> HackingMonadError.MyRight @ e @ (b -> c) (f1 a1) }
+                 } in
+                 \ (ds1 :: HackingMonadError.MyEither e b) ->
+                 case ds of wild {
+                   HackingMonadError.MyLeft ipv
+                   -> HackingMonadError.$fApplicativeMyEither1 @ e @ c
+                   HackingMonadError.MyRight f
+                   -> case ds1 of wild1 {
+                        HackingMonadError.MyLeft e1 -> HackingMonadError.MyLeft @ e @ c e1
+                        HackingMonadError.MyRight a1
+                        -> HackingMonadError.MyRight @ e @ c (f a1) } }) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fEqArithmeticError ::
+    GHC.Classes.Eq HackingMonadError.ArithmeticError
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ HackingMonadError.ArithmeticError
+                  HackingMonadError.$fEqArithmeticError_$c==
+                  HackingMonadError.$fEqArithmeticError_$c/= -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fEqArithmeticError_$c/= ::
+    HackingMonadError.ArithmeticError
+    -> HackingMonadError.ArithmeticError -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (a :: HackingMonadError.ArithmeticError)
+                   (b :: HackingMonadError.ArithmeticError) ->
+                 case a of wild {
+                   HackingMonadError.DivisionByZero
+                   -> case b of wild1 {
+                        HackingMonadError.DivisionByZero -> GHC.Types.False
+                        HackingMonadError.NotDivisible ipv ipv1 -> GHC.Types.True }
+                   HackingMonadError.NotDivisible a1 a2
+                   -> case b of wild1 {
+                        HackingMonadError.DivisionByZero -> GHC.Types.True
+                        HackingMonadError.NotDivisible b1 b2
+                        -> case a1 of wild2 { GHC.Types.I# x ->
+                           case b1 of wild3 { GHC.Types.I# y ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.==# x y) of wild4 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True
+                             -> case a2 of wild5 { GHC.Types.I# x1 ->
+                                case b2 of wild6 { GHC.Types.I# y1 ->
+                                case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.==# x1 y1) of wild7 {
+                                  GHC.Types.False -> GHC.Types.True
+                                  GHC.Types.True -> GHC.Types.False } } } } } } } }) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fEqArithmeticError_$c== ::
+    HackingMonadError.ArithmeticError
+    -> HackingMonadError.ArithmeticError -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (ds :: HackingMonadError.ArithmeticError)
+                   (ds1 :: HackingMonadError.ArithmeticError) ->
+                 case ds of wild {
+                   HackingMonadError.DivisionByZero
+                   -> case ds1 of wild1 {
+                        HackingMonadError.DivisionByZero -> GHC.Types.True
+                        HackingMonadError.NotDivisible ipv ipv1 -> GHC.Types.False }
+                   HackingMonadError.NotDivisible a1 a2
+                   -> case ds1 of wild1 {
+                        HackingMonadError.DivisionByZero -> GHC.Types.False
+                        HackingMonadError.NotDivisible b1 b2
+                        -> case a1 of wild2 { GHC.Types.I# x ->
+                           case b1 of wild3 { GHC.Types.I# y ->
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.==# x y) of wild4 {
+                             GHC.Types.False -> GHC.Types.False
+                             GHC.Types.True -> GHC.Classes.eqInt a2 b2 } } } } }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fEqMyEither ::
+    (GHC.Classes.Eq a, GHC.Classes.Eq e) =>
+    GHC.Classes.Eq (HackingMonadError.MyEither e a)
+  DFunId
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>m, Inline: CONLIKE,
+     Unfolding: DFun: @ e
+                      @ a
+                      (v :: GHC.Classes.Eq a)
+                      (v1 :: GHC.Classes.Eq e).
+                  @ (HackingMonadError.MyEither e a)
+                  (HackingMonadError.$fEqMyEither_$c== @ e @ a v v1)
+                  (HackingMonadError.$fEqMyEither_$c/= @ e @ a v v1) -}
+ee968f23dc8772baf69d5004305265b8
+  $fEqMyEither_$c/= ::
+    (GHC.Classes.Eq a, GHC.Classes.Eq e) =>
+    HackingMonadError.MyEither e a
+    -> HackingMonadError.MyEither e a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ e
+                   @ a
+                   ($dEq :: GHC.Classes.Eq a)
+                   ($dEq1 :: GHC.Classes.Eq e)
+                   (a1 :: HackingMonadError.MyEither e a)
+                   (b :: HackingMonadError.MyEither e a) ->
+                 case a1 of wild {
+                   HackingMonadError.MyLeft a2
+                   -> case b of wild1 {
+                        HackingMonadError.MyLeft b1
+                        -> case GHC.Classes.== @ e $dEq1 a2 b1 of wild2 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False }
+                        HackingMonadError.MyRight ipv -> GHC.Types.True }
+                   HackingMonadError.MyRight a2
+                   -> case b of wild1 {
+                        HackingMonadError.MyLeft ipv -> GHC.Types.True
+                        HackingMonadError.MyRight b1
+                        -> case GHC.Classes.== @ a $dEq a2 b1 of wild2 {
+                             GHC.Types.False -> GHC.Types.True
+                             GHC.Types.True -> GHC.Types.False } } }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fEqMyEither_$c== ::
+    (GHC.Classes.Eq a, GHC.Classes.Eq e) =>
+    HackingMonadError.MyEither e a
+    -> HackingMonadError.MyEither e a -> GHC.Types.Bool
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><S,1*U><S,1*U>,
+     Unfolding: (\ @ e
+                   @ a
+                   ($dEq :: GHC.Classes.Eq a)
+                   ($dEq1 :: GHC.Classes.Eq e)
+                   (ds :: HackingMonadError.MyEither e a)
+                   (ds1 :: HackingMonadError.MyEither e a) ->
+                 case ds of wild {
+                   HackingMonadError.MyLeft a1
+                   -> case ds1 of wild1 {
+                        HackingMonadError.MyLeft b1 -> GHC.Classes.== @ e $dEq1 a1 b1
+                        HackingMonadError.MyRight ipv -> GHC.Types.False }
+                   HackingMonadError.MyRight a1
+                   -> case ds1 of wild1 {
+                        HackingMonadError.MyLeft ipv -> GHC.Types.False
+                        HackingMonadError.MyRight b1
+                        -> GHC.Classes.== @ a $dEq a1 b1 } }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fFunctorMyEither ::
+    GHC.Base.Functor (HackingMonadError.MyEither e)
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun: @ e.
+                  @ (HackingMonadError.MyEither e)
+                  (HackingMonadError.$fFunctorMyEither_$cfmap @ e)
+                  (HackingMonadError.$fFunctorMyEither_$c<$ @ e) -}
+ee968f23dc8772baf69d5004305265b8
+  $fFunctorMyEither_$c<$ ::
+    a
+    -> HackingMonadError.MyEither e b -> HackingMonadError.MyEither e a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a @ b (x :: a) (ds :: HackingMonadError.MyEither e b) ->
+                 case ds of wild {
+                   HackingMonadError.MyLeft e1 -> HackingMonadError.MyLeft @ e @ a e1
+                   HackingMonadError.MyRight a1
+                   -> HackingMonadError.MyRight @ e @ a x }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fFunctorMyEither_$cfmap ::
+    (a -> b)
+    -> HackingMonadError.MyEither e a -> HackingMonadError.MyEither e b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (f :: a -> b)
+                   (ds :: HackingMonadError.MyEither e a) ->
+                 case ds of wild {
+                   HackingMonadError.MyLeft e1 -> HackingMonadError.MyLeft @ e @ b e1
+                   HackingMonadError.MyRight a1
+                   -> HackingMonadError.MyRight @ e @ b (f a1) }) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fMonadErrorArithmeticErrorMyEither ::
+    Control.Monad.Error.Class.MonadError
+      HackingMonadError.ArithmeticError
+      (HackingMonadError.MyEither HackingMonadError.ArithmeticError)
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ HackingMonadError.ArithmeticError
+                  @ (HackingMonadError.MyEither HackingMonadError.ArithmeticError)
+                  (HackingMonadError.$fMonadMyEither
+                     @ HackingMonadError.ArithmeticError)
+                  (HackingMonadError.MyLeft @ HackingMonadError.ArithmeticError)
+                  HackingMonadError.$fMonadErrorArithmeticErrorMyEither_$ccatchError -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fMonadErrorArithmeticErrorMyEither_$ccatchError ::
+    HackingMonadError.MyEither HackingMonadError.ArithmeticError a
+    -> (HackingMonadError.ArithmeticError
+        -> HackingMonadError.MyEither HackingMonadError.ArithmeticError a)
+    -> HackingMonadError.MyEither HackingMonadError.ArithmeticError a
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*C1(U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   (ds :: HackingMonadError.MyEither
+                            HackingMonadError.ArithmeticError a)
+                   (f :: HackingMonadError.ArithmeticError
+                         -> HackingMonadError.MyEither
+                              HackingMonadError.ArithmeticError a) ->
+                 case ds of wild {
+                   HackingMonadError.MyLeft e -> f e
+                   HackingMonadError.MyRight r
+                   -> HackingMonadError.MyRight
+                        @ HackingMonadError.ArithmeticError
+                        @ a
+                        r }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fMonadMyEither :: GHC.Base.Monad (HackingMonadError.MyEither e)
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun: @ e.
+                  @ (HackingMonadError.MyEither e)
+                  (HackingMonadError.$fApplicativeMyEither @ e)
+                  (HackingMonadError.$fMonadMyEither_$c>>= @ e)
+                  (HackingMonadError.$fMonadMyEither_$c>> @ e)
+                  (HackingMonadError.MyRight @ e)
+                  (\ @ a ->
+                   GHC.Err.errorWithoutStackTrace
+                     @ 'GHC.Types.LiftedRep
+                     @ (HackingMonadError.MyEither e a)) -}
+ee968f23dc8772baf69d5004305265b8
+  $fMonadMyEither_$c>> ::
+    HackingMonadError.MyEither e a
+    -> HackingMonadError.MyEither e b -> HackingMonadError.MyEither e b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Inline: (sat-args=2),
+     Unfolding: InlineRule (2, False, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (m1 :: HackingMonadError.MyEither e a)
+                   (k :: HackingMonadError.MyEither e b) ->
+                 case m1 of wild {
+                   HackingMonadError.MyLeft e1 -> HackingMonadError.MyLeft @ e @ b e1
+                   HackingMonadError.MyRight a1 -> k }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fMonadMyEither_$c>>= ::
+    HackingMonadError.MyEither e a
+    -> (a -> HackingMonadError.MyEither e b)
+    -> HackingMonadError.MyEither e b
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*C1(U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   @ a
+                   @ b
+                   (ds :: HackingMonadError.MyEither e a)
+                   (f :: a -> HackingMonadError.MyEither e b) ->
+                 case ds of wild {
+                   HackingMonadError.MyLeft e1 -> HackingMonadError.MyLeft @ e @ b e1
+                   HackingMonadError.MyRight a1 -> f a1 }) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fShowArithmeticError ::
+    GHC.Show.Show HackingMonadError.ArithmeticError
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ HackingMonadError.ArithmeticError
+                  HackingMonadError.$fShowArithmeticError_$cshowsPrec
+                  HackingMonadError.$fShowArithmeticError_$cshow
+                  HackingMonadError.$fShowArithmeticError_$cshowList -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fShowArithmeticError1 ::
+    HackingMonadError.ArithmeticError -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (HackingMonadError.$fShowArithmeticError_$cshowsPrec
+                   HackingMonadError.$fShowArithmeticError2) -}
+fbfbb990a25076207693612b1fed3a1c
+  $fShowArithmeticError2 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+d08cfb805283c28ee2fa3ee6dda38df0
+  $fShowArithmeticError3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   HackingMonadError.$fShowArithmeticError4) -}
+5d5fdd3f52e0580f732f73f230532045
+  $fShowArithmeticError4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("NotDivisible "#) -}
+fe2ef9eeb7234e0ceedbc0d7480fbb4c
+  $fShowArithmeticError5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   HackingMonadError.$fShowArithmeticError6) -}
+72ad534a8c2f5aa4fd4cf58142790f92
+  $fShowArithmeticError6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("DivisionByZero"#) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fShowArithmeticError_$cshow ::
+    HackingMonadError.ArithmeticError -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (x :: HackingMonadError.ArithmeticError) ->
+                 case x of wild {
+                   HackingMonadError.DivisionByZero
+                   -> HackingMonadError.$fShowArithmeticError5
+                   HackingMonadError.NotDivisible b1 b2
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        HackingMonadError.$fShowArithmeticError3
+                        (case b1 of ww2 { GHC.Types.I# ww3 ->
+                         case GHC.Show.$wshowSignedInt
+                                11#
+                                ww3
+                                (GHC.Types.:
+                                   @ GHC.Types.Char
+                                   GHC.Show.showSpace1
+                                   (case b2 of ww1 { GHC.Types.I# ww5 ->
+                                    case GHC.Show.$wshowSignedInt
+                                           11#
+                                           ww5
+                                           (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww6 ww7 ->
+                                    GHC.Types.:
+                                      @ GHC.Types.Char
+                                      ww6
+                                      ww7 } })) of ww4 { (#,#) ww5 ww6 ->
+                         GHC.Types.: @ GHC.Types.Char ww5 ww6 } }) }) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fShowArithmeticError_$cshowList ::
+    [HackingMonadError.ArithmeticError] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ HackingMonadError.ArithmeticError
+                   HackingMonadError.$fShowArithmeticError1) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  $fShowArithmeticError_$cshowsPrec ::
+    GHC.Types.Int
+    -> HackingMonadError.ArithmeticError -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,1*U(U)><S,1*U><L,U>,
+     Unfolding: (\ (ds :: GHC.Types.Int)
+                   (ds1 :: HackingMonadError.ArithmeticError)
+                   (eta :: GHC.Base.String) ->
+                 case ds1 of wild {
+                   HackingMonadError.DivisionByZero
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        HackingMonadError.$fShowArithmeticError5
+                        eta
+                   HackingMonadError.NotDivisible b1 b2
+                   -> case ds of wild1 { GHC.Types.I# x ->
+                      let {
+                        g :: GHC.Base.String -> GHC.Base.String
+                          {- Arity: 1, Strictness: <L,U> -}
+                        = \ (x1 :: GHC.Base.String)[OneShot] ->
+                          case b1 of ww2 { GHC.Types.I# ww3 ->
+                          case GHC.Show.$wshowSignedInt
+                                 11#
+                                 ww3
+                                 (GHC.Types.:
+                                    @ GHC.Types.Char
+                                    GHC.Show.showSpace1
+                                    (case b2 of ww1 { GHC.Types.I# ww5 ->
+                                     case GHC.Show.$wshowSignedInt
+                                            11#
+                                            ww5
+                                            x1 of ww4 { (#,#) ww6 ww7 ->
+                                     GHC.Types.:
+                                       @ GHC.Types.Char
+                                       ww6
+                                       ww7 } })) of ww4 { (#,#) ww5 ww6 ->
+                          GHC.Types.: @ GHC.Types.Char ww5 ww6 } }
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# x 11#) of wild2 {
+                        GHC.Types.False
+                        -> GHC.Base.++
+                             @ GHC.Types.Char
+                             HackingMonadError.$fShowArithmeticError3
+                             (g eta)
+                        GHC.Types.True
+                        -> GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.$fShow(,)4
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                HackingMonadError.$fShowArithmeticError3
+                                (g (GHC.Types.:
+                                      @ GHC.Types.Char
+                                      GHC.Show.$fShow(,)2
+                                      eta))) } } }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fShowMyEither ::
+    (GHC.Show.Show a, GHC.Show.Show e) =>
+    GHC.Show.Show (HackingMonadError.MyEither e a)
+  DFunId
+  {- Arity: 2,
+     Strictness: <L,U(C(C1(C(U))),A,A)><L,U(C(C1(C(U))),A,A)>m,
+     Inline: CONLIKE,
+     Unfolding: DFun: @ e
+                      @ a
+                      (v :: GHC.Show.Show a)
+                      (v1 :: GHC.Show.Show e).
+                  @ (HackingMonadError.MyEither e a)
+                  (HackingMonadError.$fShowMyEither_$cshowsPrec @ e @ a v v1)
+                  (HackingMonadError.$fShowMyEither_$cshow @ e @ a v v1)
+                  (HackingMonadError.$fShowMyEither_$cshowList @ e @ a v v1) -}
+e99a206adab60669dba5aa56de3be719
+  $fShowMyEither1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   HackingMonadError.$fShowMyEither2) -}
+adcd16e2a998d4ed3b0de54233852d57
+  $fShowMyEither2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("MyRight "#) -}
+63aae8f81fe63a26ffed5974a451e0b1
+  $fShowMyEither3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   HackingMonadError.$fShowMyEither4) -}
+e15a00c852d09a4aa15da4c12d9c63e4
+  $fShowMyEither4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("MyLeft "#) -}
+52ac43e4045e7fd2a04ec11b2ba1462a
+  $fShowMyEither5 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 11#) -}
+ee968f23dc8772baf69d5004305265b8
+  $fShowMyEither_$cshow ::
+    (GHC.Show.Show a, GHC.Show.Show e) =>
+    HackingMonadError.MyEither e a -> GHC.Base.String
+  {- Arity: 3,
+     Strictness: <L,1*U(1*C1(C1(C1(U))),A,A)><L,1*U(1*C1(C1(C1(U))),A,A)><S,1*U>,
+     Unfolding: (\ @ e
+                   @ a
+                   ($dShow :: GHC.Show.Show a)
+                   ($dShow1 :: GHC.Show.Show e)
+                   (x :: HackingMonadError.MyEither e a) ->
+                 case x of wild {
+                   HackingMonadError.MyLeft b1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        HackingMonadError.$fShowMyEither3
+                        (GHC.Show.showsPrec
+                           @ e
+                           $dShow1
+                           HackingMonadError.$fShowMyEither5
+                           b1
+                           (GHC.Types.[] @ GHC.Types.Char))
+                   HackingMonadError.MyRight b1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        HackingMonadError.$fShowMyEither1
+                        (GHC.Show.showsPrec
+                           @ a
+                           $dShow
+                           HackingMonadError.$fShowMyEither5
+                           b1
+                           (GHC.Types.[] @ GHC.Types.Char)) }) -}
+ee968f23dc8772baf69d5004305265b8
+  $fShowMyEither_$cshowList ::
+    (GHC.Show.Show a, GHC.Show.Show e) =>
+    [HackingMonadError.MyEither e a] -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,U(C(C1(C(U))),A,A)><L,U(C(C1(C(U))),A,A)><S,1*U><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ e
+                   @ a
+                   ($dShow :: GHC.Show.Show a)
+                   ($dShow1 :: GHC.Show.Show e)
+                   (eta :: [HackingMonadError.MyEither e a])
+                   (eta1 :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ (HackingMonadError.MyEither e a)
+                   (HackingMonadError.$fShowMyEither_$cshowsPrec
+                      @ e
+                      @ a
+                      $dShow
+                      $dShow1
+                      HackingMonadError.$fShowArithmeticError2)
+                   eta
+                   eta1) -}
+ee968f23dc8772baf69d5004305265b8
+  $fShowMyEither_$cshowsPrec ::
+    (GHC.Show.Show a, GHC.Show.Show e) =>
+    GHC.Types.Int -> HackingMonadError.MyEither e a -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,1*U(1*C1(C1(C(U))),A,A)><L,1*U(1*C1(C1(C(U))),A,A)><S(S),1*U(U)><S,1*U>,
+     Inline: [0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ e
+                   @ a
+                   (w :: GHC.Show.Show a)
+                   (w1 :: GHC.Show.Show e)
+                   (w2 :: GHC.Types.Int)
+                   (w3 :: HackingMonadError.MyEither e a) ->
+                 case w2 of ww { GHC.Types.I# ww1 ->
+                 HackingMonadError.$w$cshowsPrec @ e @ a w w1 ww1 w3 }) -}
+92a0f70f33de142155c0ee631e0456db
+  $tc'DivisionByZero :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4053735893843918836##
+                   3260000574130918659##
+                   HackingMonadError.$trModule
+                   HackingMonadError.$tc'DivisionByZero2
+                   0#
+                   HackingMonadError.$tc'DivisionByZero1) -}
+645e29694df211ef919bcd95f5b20914
+  $tc'DivisionByZero1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m1, Inline: [~] -}
+cab2eadcc1cae54bec6d26689e31d340
+  $tc'DivisionByZero2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   HackingMonadError.$tc'DivisionByZero3) -}
+3534b87bd6e0078dae7539ff1f36594e
+  $tc'DivisionByZero3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'DivisionByZero"#) -}
+8320962b386ab42ca1e731e186cbf2c4
+  $tc'MyLeft :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7561959719116542989##
+                   16320157314582643839##
+                   HackingMonadError.$trModule
+                   HackingMonadError.$tc'MyLeft2
+                   2#
+                   HackingMonadError.$tc'MyLeft1) -}
+3db89811cbc68b54e5b776874b969211
+  $tc'MyLeft1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+a5a161e971230d3fa1a83cc1ebeab2a0
+  $tc'MyLeft2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS HackingMonadError.$tc'MyLeft3) -}
+e193bc6988c2e81e7e9df2204b188ca4
+  $tc'MyLeft3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'MyLeft"#) -}
+f157c4999712d771ce75041bd32a9140
+  $tc'MyRight :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2153794183283336758##
+                   8064231805463817210##
+                   HackingMonadError.$trModule
+                   HackingMonadError.$tc'MyRight2
+                   2#
+                   HackingMonadError.$tc'MyRight1) -}
+a9e1d73f30045e8e11996109091f3520
+  $tc'MyRight1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+1bfd8e638c8246798b23b485760f5b9f
+  $tc'MyRight2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS HackingMonadError.$tc'MyRight3) -}
+a20f349b5e2e7e619b6d6c5a47f01eb4
+  $tc'MyRight3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'MyRight"#) -}
+0754faf7f25eae67100d91c0e43ff869
+  $tc'NotDivisible :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   11658357529618459355##
+                   16329854547980095641##
+                   HackingMonadError.$trModule
+                   HackingMonadError.$tc'NotDivisible2
+                   0#
+                   HackingMonadError.$tc'NotDivisible1) -}
+224e8b2e6e96d013872270b4b9e2d133
+  $tc'NotDivisible1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+5f5f4f767660fd1de6c236268a08f626
+  $tc'NotDivisible2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   HackingMonadError.$tc'NotDivisible3) -}
+5231b7b52cc605f456d26d74552d848f
+  $tc'NotDivisible3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'NotDivisible"#) -}
+b6f844f64b76419ea03dee88c7a6a127
+  $tcArithmeticError :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   9109316581667573751##
+                   9623848938914195276##
+                   HackingMonadError.$trModule
+                   HackingMonadError.$tcArithmeticError1
+                   0#
+                   GHC.Types.krep$*) -}
+f52ad9f236d881f7e2f47f0b1d605989
+  $tcArithmeticError1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   HackingMonadError.$tcArithmeticError2) -}
+1ce61f8c3e915d1c277fc38a308eb8fd
+  $tcArithmeticError2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ArithmeticError"#) -}
+27812b5f9803adbf7e1a13c3ac081f95
+  $tcMyEither :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   341791779007411256##
+                   4045187859361213574##
+                   HackingMonadError.$trModule
+                   HackingMonadError.$tcMyEither1
+                   0#
+                   GHC.Types.krep$*->*->*) -}
+de5c10b6af674d7e51ea04fcb96db639
+  $tcMyEither1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS HackingMonadError.$tcMyEither2) -}
+3afdbb23f23297d56cde28e661771d6a
+  $tcMyEither2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("MyEither"#) -}
+07b0bbbbf33a0313c611ac72cbc17718
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   HackingMonadError.$trModule3
+                   HackingMonadError.$trModule1) -}
+ac64d2f1f28cd0145b8effdeb4c56d76
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS HackingMonadError.$trModule2) -}
+4eea7bab925a64c03b504b97e4199b57
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("HackingMonadError"#) -}
+adbe3284fcf70c62087829228fc1088c
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS HackingMonadError.$trModule4) -}
+caf0081f4ceb3e49353d45dd831035c5
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("haskell-sketchpad-0.1.0.0-G5TRy3nU6jn2IWkghlFyGf"#) -}
+ee968f23dc8772baf69d5004305265b8
+  $w$cshowsPrec ::
+    (GHC.Show.Show a, GHC.Show.Show e) =>
+    GHC.Prim.Int# -> HackingMonadError.MyEither e a -> GHC.Show.ShowS
+  {- Arity: 4,
+     Strictness: <L,1*U(1*C1(C1(C(U))),A,A)><L,1*U(1*C1(C1(C(U))),A,A)><S,U><S,1*U>,
+     Inline: [0],
+     Unfolding: (\ @ e
+                   @ a
+                   (w :: GHC.Show.Show a)
+                   (w1 :: GHC.Show.Show e)
+                   (ww :: GHC.Prim.Int#)
+                   (w2 :: HackingMonadError.MyEither e a) ->
+                 case w2 of wild {
+                   HackingMonadError.MyLeft b1
+                   -> let {
+                        g :: GHC.Base.String -> GHC.Base.String
+                        = GHC.Show.showsPrec @ e w1 HackingMonadError.$fShowMyEither5 b1
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# ww 11#) of wild1 {
+                        GHC.Types.False
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Base.++
+                             @ GHC.Types.Char
+                             HackingMonadError.$fShowMyEither3
+                             (g x)
+                        GHC.Types.True
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.$fShow(,)4
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                HackingMonadError.$fShowMyEither3
+                                (g (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 x))) }
+                   HackingMonadError.MyRight b1
+                   -> let {
+                        g :: GHC.Base.String -> GHC.Base.String
+                        = GHC.Show.showsPrec @ a w HackingMonadError.$fShowMyEither5 b1
+                      } in
+                      case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.>=# ww 11#) of wild1 {
+                        GHC.Types.False
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Base.++
+                             @ GHC.Types.Char
+                             HackingMonadError.$fShowMyEither1
+                             (g x)
+                        GHC.Types.True
+                        -> \ (x :: GHC.Base.String) ->
+                           GHC.Types.:
+                             @ GHC.Types.Char
+                             GHC.Show.$fShow(,)4
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                HackingMonadError.$fShowMyEither1
+                                (g (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 x))) } }) -}
+afcf535c57e06ee74995392ff128ea5c
+  $wdivide ::
+    GHC.Types.Int
+    -> GHC.Prim.Int#
+    -> HackingMonadError.MyEither
+         HackingMonadError.ArithmeticError GHC.Types.Int
+  {- Arity: 2, Strictness: <L,1*U(U)><S,1*U>, Inline: [0],
+     Unfolding: (\ (w :: GHC.Types.Int) (ww :: GHC.Prim.Int#) ->
+                 case ww of ds {
+                   DEFAULT
+                   -> case w of wild1 { GHC.Types.I# x ->
+                      case GHC.Classes.modInt# x ds of ww2 { DEFAULT ->
+                      HackingMonadError.MyRight
+                        @ HackingMonadError.ArithmeticError
+                        @ GHC.Types.Int
+                        (case GHC.Classes.divInt# x ds of ww4 { DEFAULT ->
+                         GHC.Types.I# ww4 }) } }
+                   -1#
+                   -> HackingMonadError.MyRight
+                        @ HackingMonadError.ArithmeticError
+                        @ GHC.Types.Int
+                        (case w of ww1 { GHC.Types.I# ww2 ->
+                         case ww2 of wild1 {
+                           DEFAULT
+                           -> case GHC.Classes.divInt# wild1 -1# of ww4 { DEFAULT ->
+                              GHC.Types.I# ww4 }
+                           -9223372036854775808#
+                           -> case GHC.Real.overflowError ret_ty GHC.Types.Int of {} } })
+                   0# -> HackingMonadError.divide1 }) -}
+514255f3594a5833cc96b62bcd921530
+  $wsafe_divide ::
+    GHC.Types.Int
+    -> GHC.Prim.Int#
+    -> HackingMonadError.MyEither
+         HackingMonadError.ArithmeticError GHC.Types.Int
+  {- Arity: 2, Strictness: <L,1*U(U)><S,1*U>, Inline: [0],
+     Unfolding: (\ (w :: GHC.Types.Int) (ww :: GHC.Prim.Int#) ->
+                 case ww of ds {
+                   DEFAULT
+                   -> case w of wild1 { GHC.Types.I# x ->
+                      case GHC.Classes.modInt# x ds of ww2 {
+                        DEFAULT
+                        -> HackingMonadError.MyLeft
+                             @ HackingMonadError.ArithmeticError
+                             @ GHC.Types.Int
+                             (HackingMonadError.NotDivisible wild1 (GHC.Types.I# ds))
+                        0#
+                        -> HackingMonadError.MyRight
+                             @ HackingMonadError.ArithmeticError
+                             @ GHC.Types.Int
+                             (case GHC.Classes.divInt# x ds of ww4 { DEFAULT ->
+                              GHC.Types.I# ww4 }) } }
+                   -1#
+                   -> HackingMonadError.MyRight
+                        @ HackingMonadError.ArithmeticError
+                        @ GHC.Types.Int
+                        (case w of ww1 { GHC.Types.I# ww2 ->
+                         case ww2 of wild1 {
+                           DEFAULT
+                           -> case GHC.Classes.divInt# wild1 -1# of ww4 { DEFAULT ->
+                              GHC.Types.I# ww4 }
+                           -9223372036854775808#
+                           -> case GHC.Real.overflowError ret_ty GHC.Types.Int of {} } })
+                   0# -> HackingMonadError.divide1 }) -}
+4fbfdacadcbc5deeb603a37962b1dc85
+  data ArithmeticError
+    = DivisionByZero | NotDivisible GHC.Types.Int GHC.Types.Int
+ee968f23dc8772baf69d5004305265b8
+  data MyEither e a = MyLeft e | MyRight a
+da2c9c671486e52854fc2c1ca5da5d2e
+  divide ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> HackingMonadError.MyEither
+         HackingMonadError.ArithmeticError GHC.Types.Int
+  {- Arity: 2, Strictness: <L,1*U(U)><S(S),1*U(1*U)>, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Int) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 HackingMonadError.$wdivide w ww1 }) -}
+ea527c9e3e7be908b3196932b65e3067
+  divide1 ::
+    HackingMonadError.MyEither
+      HackingMonadError.ArithmeticError GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (HackingMonadError.MyLeft
+                   @ HackingMonadError.ArithmeticError
+                   @ GHC.Types.Int
+                   HackingMonadError.DivisionByZero) -}
+e8e7cf196ff15c5dc6744136c8aad205
+  handleDivisionErrors ::
+    HackingMonadError.ArithmeticError
+    -> HackingMonadError.MyEither
+         HackingMonadError.ArithmeticError GHC.Types.Int
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: HackingMonadError.ArithmeticError) ->
+                 case ds of wild {
+                   HackingMonadError.DivisionByZero -> HackingMonadError.divide1
+                   HackingMonadError.NotDivisible x y
+                   -> HackingMonadError.MyRight
+                        @ HackingMonadError.ArithmeticError
+                        @ GHC.Types.Int
+                        (GHC.Real.$fIntegralInt_$cdiv x y) }) -}
+e64a93a1f17e879fa9c19e583b55f85b
+  safe_divide ::
+    GHC.Types.Int
+    -> GHC.Types.Int
+    -> HackingMonadError.MyEither
+         HackingMonadError.ArithmeticError GHC.Types.Int
+  {- Arity: 2, Strictness: <L,1*U(U)><S(S),1*U(1*U)>, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Int) (w1 :: GHC.Types.Int) ->
+                 case w1 of ww { GHC.Types.I# ww1 ->
+                 HackingMonadError.$wsafe_divide w ww1 }) -}
+instance [safe] GHC.Base.Applicative [HackingMonadError.MyEither]
+  = HackingMonadError.$fApplicativeMyEither
+instance [safe] GHC.Classes.Eq [HackingMonadError.ArithmeticError]
+  = HackingMonadError.$fEqArithmeticError
+instance [safe] GHC.Classes.Eq [HackingMonadError.MyEither]
+  = HackingMonadError.$fEqMyEither
+instance [safe] GHC.Base.Functor [HackingMonadError.MyEither]
+  = HackingMonadError.$fFunctorMyEither
+instance [safe] Control.Monad.Error.Class.MonadError [HackingMonadError.ArithmeticError,
+                                                      HackingMonadError.MyEither]
+  = HackingMonadError.$fMonadErrorArithmeticErrorMyEither
+instance [safe] GHC.Base.Monad [HackingMonadError.MyEither]
+  = HackingMonadError.$fMonadMyEither
+instance [safe] GHC.Show.Show [HackingMonadError.ArithmeticError]
+  = HackingMonadError.$fShowArithmeticError
+instance [safe] GHC.Show.Show [HackingMonadError.MyEither]
+  = HackingMonadError.$fShowMyEither
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
